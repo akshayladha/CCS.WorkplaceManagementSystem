@@ -155,14 +155,7 @@
         </Style>
     </Window.Resources>
     <Grid DataContext="{StaticResource MainWindowViewModel}">
-        <!--<ListBox Margin="10"
-                 ItemsSource="{Binding DeskList}" />-->
-        <!--<local:UCDeskMachine Height="200"
-                             
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Top" />-->
-        <WrapPanel Orientation="Horizontal">
-            <ContentControl Content="{Binding MachineContent}" />
-        </WrapPanel>
+        <ListBox Margin="10"
+                 ItemsSource="{Binding DeskList}" />
     </Grid>
 </Window>
