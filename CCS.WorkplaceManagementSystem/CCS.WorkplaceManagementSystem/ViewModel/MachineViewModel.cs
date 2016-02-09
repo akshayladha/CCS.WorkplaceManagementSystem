@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCS.WorkplaceManagementSystem.Models;
 
 namespace CCS.WorkplaceManagementSystem
 {
@@ -19,19 +20,9 @@ namespace CCS.WorkplaceManagementSystem
             set { _machine = value; PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nameof(Machine)));}
         }
 
-        public MachineViewModel()
+        public MachineViewModel(Machine userMachine)
         {
-            Machine = GetMachineData();
-        }
-
-        private Machine GetMachineData()
-        {
-            return new Machine
-            {
-                MachineNumber = "10000",
-                Status = (MachineStatus) 1,
-                Desk = new Desk {DeskNumber = "PDC01"}
-            };
+            Machine = userMachine;
         }
     }
 }

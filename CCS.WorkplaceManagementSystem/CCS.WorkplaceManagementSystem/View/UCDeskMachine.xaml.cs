@@ -23,7 +23,6 @@ namespace CCS.WorkplaceManagementSystem
         public UCDeskMachine()
         {
             InitializeComponent();
-            //DataContext = new MachineViewModel();
         }
     }
 }

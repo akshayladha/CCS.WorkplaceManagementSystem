@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CCS.CustomControlLibrary">
+    <local:EnumToColorConverter x:Key="EnumToColorConverter" />
+    <local:EnumToThicknessConverter x:Key="EnumToThicknessConverter" />
+    <local:EnumToHorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"></local:EnumToHorizontalAlignmentConverter>
+    <local:EnumToVerticalAllignmentConverter x:Key="VerticalAllignmentConverter"></local:EnumToVerticalAllignmentConverter>
+    <Style TargetType="{x:Type local:DeskCustomControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DeskCustomControl}">
+                    <Border Margin="10"
+                            Padding="20"
+                            SnapsToDevicePixels="true"
+                            BorderThickness="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent} ,Converter={StaticResource EnumToThicknessConverter}}"
+                            BorderBrush="Black">
+                        <!---->
+                        <!--<ContentPresenter />-->
+                        <Button HorizontalAlignment="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource HorizontalAlignmentConverter}}"
+                                VerticalAlignment="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource VerticalAllignmentConverter}}">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="50"
+                                           Width="50"
+                                           Source="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}}"
+                                           Margin="10"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Left" />
+                                    <StackPanel Orientation="Vertical">
+                                        <ContentPresenter Content="{Binding UserMachine, RelativeSource={RelativeSource TemplatedParent}}"
+                                                          HorizontalAlignment="Left" />
+                                        <Rectangle Height="20"
+                                                   Width="20"
+                                                   Margin="10"
+                                                   Fill="{Binding UserMachine.Status, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource EnumToColorConverter}}"
+                                                   ToolTip="{Binding UserMachine.Status}"
+                                                   HorizontalAlignment="Left" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

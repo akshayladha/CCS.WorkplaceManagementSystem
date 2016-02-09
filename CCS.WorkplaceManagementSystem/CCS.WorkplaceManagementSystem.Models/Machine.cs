@@ -4,8 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CCS.WorkplaceManagementSystem
+namespace CCS.WorkplaceManagementSystem.Models
 {
+    public enum MachineStatus
+    {
+        Active = 0,
+        Away = 1,
+        Shutdown = 2,
+        Unknown = 3
+    }
+
+    public enum MachinePosition
+    {
+        TopLeft,
+        TopRight,
+        BottonLeft,
+        BottomRight
+    }
+
     public class Machine
     {
         public Guid MachineId { get; set; }
@@ -16,8 +32,8 @@ namespace CCS.WorkplaceManagementSystem
         public string Processor { get; set; }
         public string SystemType { get; set; }
         public string Domain { get; set; }
-        public string OS { get; set; }        
-        public MachineStatus Status { get; set; }        
+        public string OS { get; set; }
+        public MachineStatus Status { get; set; }
         public override string ToString()
         {
             var machineText = "Machine Number : " + MachineNumber;

@@ -4,19 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57435E58-BA28-4280-9092-77067AA64AC4}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{5113FA45-8F54-47CF-9439-F80D80C362F4}</ProjectGuid>
+    <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CCS.WorkplaceManagementSystem</RootNamespace>
-    <AssemblyName>CCS.WorkplaceManagementSystem</AssemblyName>
+    <RootNamespace>CCS.CustomControlLibrary</RootNamespace>
+    <AssemblyName>CCS.CustomControlLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -37,8 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,44 +48,19 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Service References\GetDataService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\MachineViewModel.cs" />
-    <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="Converters\StatusToColorConverter.cs" />
-    <Compile Include="View\UCDeskMachine.xaml.cs">
-      <DependentUpon>UCDeskMachine.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Resources\DataTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
+    <Compile Include="DeskCustomControl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="View\UCDeskMachine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="EnumToColorConverter.cs" />
+    <Compile Include="EnumToHorizontalAlignmentConverter.cs" />
+    <Compile Include="EnumToThicknessConverter.cs" />
+    <Compile Include="EnumToVerticalAllignmentConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,60 +78,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\CCS.WorkplaceManagementSystem.Models.Machine.datasource" />
-    <None Include="Properties\DataSources\CCS.WorkplaceManagementSystem.Models.Section.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\GetDataService\GetDataService.wsdl" />
-    <None Include="Service References\GetDataService\GetDataService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GetDataService\GetDataService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GetDataService\GetDataService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Computer.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CCS.CustomControlLibrary\CCS.CustomControlLibrary.csproj">
-      <Project>{5113fa45-8f54-47cf-9439-f80d80c362f4}</Project>
-      <Name>CCS.CustomControlLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CCS.WorkplaceManagementSystem.Models\CCS.WorkplaceManagementSystem.Models.csproj">
       <Project>{f41b8251-2e70-472b-b926-49b8179a1d28}</Project>
       <Name>CCS.WorkplaceManagementSystem.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GetDataService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GetDataService\GetDataService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GetDataService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GetDataService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GetDataService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

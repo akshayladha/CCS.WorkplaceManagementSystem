@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCS.WorkplaceManagementSystem"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:customControlLibrary="clr-namespace:CCS.CustomControlLibrary;assembly=CCS.CustomControlLibrary"
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="Workplace Management System"
@@ -13,6 +13,19 @@
     <Window.Resources>
         <local:StatusToColorConverter x:Key="StatusToColorConverter" />
         <local:MainWindowViewModel x:Key="MainWindowViewModel" />
+        <Style TargetType="{x:Type Image}"
+               x:Key="ImageListboxstyle">
+            <Setter Property="Height"
+                    Value="50" />
+            <Setter Property="Width"
+                    Value="100" />
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Source"
+                    Value="../Resources/Computer.jpg" />
+        </Style>
         <Style TargetType="ListBoxItem">
             <Setter Property="SnapsToDevicePixels"
                     Value="true" />
@@ -44,10 +57,7 @@
                                 <Button HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Height="50"
-                                                   Width="50"
-                                                   Source="Computer.jpg"
-                                                   Margin="10" />
+                                            <Image Style="{StaticResource ImageListboxstyle}" />
                                             <StackPanel Orientation="Vertical">
                                                 <ContentPresenter Content="{Binding Machine1}"
                                                                   HorizontalAlignment="Left" />
@@ -73,10 +83,7 @@
                                 <Button HorizontalAlignment="Right">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Height="50"
-                                                   Width="50"
-                                                   Source="Computer.jpg"
-                                                   Margin="10" />
+                                            <Image Style="{StaticResource ImageListboxstyle}" />
                                             <StackPanel Orientation="Vertical">
                                                 <ContentPresenter Content="{Binding Machine2}"
                                                                   HorizontalAlignment="Left" />
@@ -102,10 +109,7 @@
                                 <Button HorizontalAlignment="Left">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Height="50"
-                                                   Width="50"
-                                                   Source="Computer.jpg"
-                                                   Margin="10" />
+                                            <Image Style="{StaticResource ImageListboxstyle}" />
                                             <StackPanel Orientation="Vertical">
                                                 <ContentPresenter Content="{Binding Machine3}"
                                                                   HorizontalAlignment="Left" />
@@ -130,10 +134,7 @@
                                 <Button HorizontalAlignment="Right">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Height="50"
-                                                   Width="50"
-                                                   Source="Computer.jpg"
-                                                   Margin="10" />
+                                            <Image Style="{StaticResource ImageListboxstyle}" />
                                             <StackPanel Orientation="Vertical">
                                                 <ContentPresenter Content="{Binding Machine4}"
                                                                   HorizontalAlignment="Left" />
@@ -153,9 +154,88 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="{x:Type Button}"
+               x:Key="NormalButtonStyle">
+            <Setter Property="Height"
+                    Value="30" />
+            <Setter Property="Width"
+                    Value="100" />
+            <Setter Property="Margin"
+                    Value="20" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+        </Style>
     </Window.Resources>
-    <Grid DataContext="{StaticResource MainWindowViewModel}">
-        <ListBox Margin="10"
-                 ItemsSource="{Binding DeskList}" />
-    </Grid>
+    <TabControl DataContext="{StaticResource MainWindowViewModel}">
+        <TabItem Header="Using Listbox">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Content="Get Data"
+                        Command="{Binding GetDataFromServiceCommand}"
+                        Style="{StaticResource NormalButtonStyle}" />
+                <ListBox Margin="10"
+                         Grid.Row="1"
+                         Name="lstDesks"
+                         ItemsSource="{Binding DeskList}" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="Using custom control">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Content="Get Data"
+                        Command="{Binding GetDataFromServiceCommand}"
+                        Style="{StaticResource NormalButtonStyle}" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <customControlLibrary:DeskCustomControl MachinePosition="TopLeft"
+                                                            UserMachine="{Binding DeskList[0].Machine1}"
+                                                            ImageSource="../Resources/Computer.jpg" />
+                    <customControlLibrary:DeskCustomControl MachinePosition="TopRight"
+                                                            UserMachine="{Binding DeskList[0].Machine2}"
+                                                            ImageSource="../Resources/Computer.jpg"
+                                                            Grid.Column="2"
+                                                            Grid.Row="0" />
+                    <customControlLibrary:DeskCustomControl MachinePosition="BottonLeft"
+                                                            UserMachine="{Binding DeskList[0].Machine3}"
+                                                            ImageSource="../Resources/Computer.jpg"
+                                                            Grid.Row="1"
+                                                            Grid.Column="0" />
+                    <customControlLibrary:DeskCustomControl MachinePosition="BottomRight"
+                                                            UserMachine="{Binding DeskList[0].Machine4}"
+                                                            ImageSource="../Resources/Computer.jpg"
+                                                            Grid.Row="1"
+                                                            Grid.Column="2" />
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Using user control">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Content="Get Data"
+                        Command="{Binding GetDataFromServiceCommand}"
+                        Style="{StaticResource NormalButtonStyle}" />
+                <ContentControl Content="{Binding MachineContent}"
+                                Grid.Row="1" />
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

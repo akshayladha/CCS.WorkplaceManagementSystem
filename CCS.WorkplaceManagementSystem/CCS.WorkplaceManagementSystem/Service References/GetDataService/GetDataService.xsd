@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CCS.WorkplaceManagementSystem.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCS.WorkplaceManagementSystem.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64598/GetDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Machine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Desk" nillable="true" type="tns:Desk" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HD" type="xs:int" />
+      <xs:element minOccurs="0" name="MachineId" type="ser:guid" />
+      <xs:element minOccurs="0" name="MachineNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Processor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RAM" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="tns:MachineStatus" />
+      <xs:element minOccurs="0" name="SystemType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Machine" nillable="true" type="tns:Machine" />
+  <xs:complexType name="Desk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeskLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeskNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Desk" nillable="true" type="tns:Desk" />
+  <xs:simpleType name="MachineStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Away" />
+      <xs:enumeration value="Shutdown" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MachineStatus" nillable="true" type="tns:MachineStatus" />
+  <xs:complexType name="ArrayOfSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Section" nillable="true" type="tns:Section" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSection" nillable="true" type="tns:ArrayOfSection" />
+  <xs:complexType name="Section">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Machine1" nillable="true" type="tns:Machine" />
+      <xs:element minOccurs="0" name="Machine2" nillable="true" type="tns:Machine" />
+      <xs:element minOccurs="0" name="Machine3" nillable="true" type="tns:Machine" />
+      <xs:element minOccurs="0" name="Machine4" nillable="true" type="tns:Machine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Section" nillable="true" type="tns:Section" />
+</xs:schema>

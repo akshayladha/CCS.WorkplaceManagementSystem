@@ -4,6 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCS.WorkplaceManagementSystem", "CCS.WorkplaceManagementSystem\CCS.WorkplaceManagementSystem.csproj", "{57435E58-BA28-4280-9092-77067AA64AC4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E} = {2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCS.CustomControlLibrary", "CCS.CustomControlLibrary\CCS.CustomControlLibrary.csproj", "{5113FA45-8F54-47CF-9439-F80D80C362F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCS.WorkplaceManagementSystem.Models", "CCS.WorkplaceManagementSystem.Models\CCS.WorkplaceManagementSystem.Models.csproj", "{F41B8251-2E70-472B-B926-49B8179A1D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCS.GetDataService", "CCS.GetDataService\CCS.GetDataService.csproj", "{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,18 @@ Global
 		{57435E58-BA28-4280-9092-77067AA64AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57435E58-BA28-4280-9092-77067AA64AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57435E58-BA28-4280-9092-77067AA64AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5113FA45-8F54-47CF-9439-F80D80C362F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5113FA45-8F54-47CF-9439-F80D80C362F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5113FA45-8F54-47CF-9439-F80D80C362F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5113FA45-8F54-47CF-9439-F80D80C362F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41B8251-2E70-472B-B926-49B8179A1D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41B8251-2E70-472B-B926-49B8179A1D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41B8251-2E70-472B-B926-49B8179A1D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41B8251-2E70-472B-B926-49B8179A1D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B21BA93-C2F6-4079-8EC0-BD13BAA7362E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

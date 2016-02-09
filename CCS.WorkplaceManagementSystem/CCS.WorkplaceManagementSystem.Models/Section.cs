@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CCS.WorkplaceManagementSystem
+namespace CCS.WorkplaceManagementSystem.Models
 {
     public class Section
     {

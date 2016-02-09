@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64598/GetDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCS.WorkplaceManagementSystem.Models" />
+  <xs:element name="GetMachineData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMachineDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCS.WorkplaceManagementSystem.Models" minOccurs="0" name="GetMachineDataResult" nillable="true" type="q1:Machine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeskData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="status1" type="xs:int" />
+        <xs:element minOccurs="0" name="status2" type="xs:int" />
+        <xs:element minOccurs="0" name="status3" type="xs:int" />
+        <xs:element minOccurs="0" name="status4" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeskDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCS.WorkplaceManagementSystem.Models" minOccurs="0" name="GetDeskDataResult" nillable="true" type="q2:ArrayOfSection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
