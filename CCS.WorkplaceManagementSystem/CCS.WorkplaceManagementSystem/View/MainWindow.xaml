@@ -215,22 +215,30 @@
                     </Grid.RowDefinitions>
                     <customControlLibrary:DeskCustomControl MachinePosition="TopLeft"
                                                             UserMachine="{Binding DeskList[0].Machine1}"
-                                                            ImageSource="../Resources/Computer.jpg" />
+                                                            ImageSource="../Resources/Computer.jpg"
+                                                            ShowDetailsCommand="{Binding OpenMachineDetailCommand}"
+                                                            ShowDetailsCommandParameter="{Binding DeskList[0].Machine1}"/>
                     <customControlLibrary:DeskCustomControl MachinePosition="TopRight"
                                                             UserMachine="{Binding DeskList[0].Machine2}"
                                                             ImageSource="../Resources/Computer.jpg"
                                                             Grid.Column="2"
-                                                            Grid.Row="0" />
+                                                            Grid.Row="0"
+                                                            ShowDetailsCommand="{Binding OpenMachineDetailCommand}"
+                                                            ShowDetailsCommandParameter="{Binding DeskList[0].Machine2}" />
                     <customControlLibrary:DeskCustomControl MachinePosition="BottonLeft"
                                                             UserMachine="{Binding DeskList[0].Machine3}"
                                                             ImageSource="../Resources/Computer.jpg"
                                                             Grid.Row="1"
-                                                            Grid.Column="0" />
+                                                            Grid.Column="0"
+                                                            ShowDetailsCommand="{Binding OpenMachineDetailCommand}"
+                                                            ShowDetailsCommandParameter="{Binding DeskList[0].Machine3}" />
                     <customControlLibrary:DeskCustomControl MachinePosition="BottomRight"
                                                             UserMachine="{Binding DeskList[0].Machine4}"
                                                             ImageSource="../Resources/Computer.jpg"
                                                             Grid.Row="1"
-                                                            Grid.Column="2" />
+                                                            Grid.Column="2"
+                                                            ShowDetailsCommand="{Binding OpenMachineDetailCommand}"
+                                                            ShowDetailsCommandParameter="{Binding DeskList[0].Machine4}" />
                 </Grid>
             </Grid>
         </TabItem>

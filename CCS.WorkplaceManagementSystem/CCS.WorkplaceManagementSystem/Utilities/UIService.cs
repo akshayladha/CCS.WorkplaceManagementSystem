@@ -6,7 +6,7 @@ namespace CCS.WorkplaceManagementSystem.Utilities
     {
         public void Initialize()
         {
-            Mediator.Register("OpenDialog", OpenDialog);
+            UIServiceLinker.Register("OpenDialog", OpenDialog);
         }
         public void OpenDialog(object vm)
         {

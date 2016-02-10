@@ -65,7 +65,8 @@ namespace CCS.WorkplaceManagementSystem.ViewModel
         public MainWindowViewModel()
         {
             GetDataFromServiceCommand = new RelayCommand(GetServiceData);
-            OpenMachineDetailCommand = new RelayCommand(OpenMachineDetailsWindow);//Initialize UIService
+            OpenMachineDetailCommand = new RelayCommand(OpenMachineDetailsWindow);
+            //Initialize UIService
             var service = new UIService();
             service.Initialize();
             var t = new Timer(3000);
@@ -75,7 +76,7 @@ namespace CCS.WorkplaceManagementSystem.ViewModel
 
         private void OpenMachineDetailsWindow(object machine)
         {
-            Mediator.NotifyColleagues("OpenDialog",new MachineDetailViewModel(machine as Machine));
+            UIServiceLinker.Notify("OpenDialog",new MachineDetailViewModel(machine as Machine));
         }
 
         private void GetServiceData(object uselessParam)

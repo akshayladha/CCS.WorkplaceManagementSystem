@@ -58,7 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utilities\IUIService.cs" />
-    <Compile Include="Utilities\Mediator.cs" />
+    <Compile Include="Utilities\UIServiceLinker.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Service References\GetDataService\Reference.cs">
       <AutoGen>True</AutoGen>

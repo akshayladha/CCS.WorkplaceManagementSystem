@@ -17,7 +17,10 @@
                         <!---->
                         <!--<ContentPresenter />-->
                         <Button HorizontalAlignment="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource HorizontalAlignmentConverter}}"
-                                VerticalAlignment="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource VerticalAllignmentConverter}}">
+                                VerticalAlignment="{Binding MachinePosition, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource VerticalAllignmentConverter}}"
+                                x:Name="MainButton"
+                                Command="{Binding ShowDetailsCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                CommandParameter="{Binding ShowDetailsCommandParameter, RelativeSource={RelativeSource TemplatedParent}}">
                             <Button.Content>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Height="50"

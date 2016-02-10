@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using CCS.WorkplaceManagementSystem.Models;
 
 namespace CCS.CustomControlLibrary
@@ -70,11 +72,54 @@ namespace CCS.CustomControlLibrary
         public static readonly DependencyProperty ImageSourceProperty =
             DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(DeskCustomControl), new PropertyMetadata(null));
 
+        //public static readonly DependencyProperty ShowDetailsCommandProperty =
+        //    DependencyProperty.Register("ShowDetailsCommand", typeof (ICommand), typeof (DeskCustomControl),
+        //        new PropertyMetadata(null));
+
+        //public ICommand ShowDetailsCommand
+        //{
+        //    get
+        //    {
+        //        return (ICommand)GetValue(ShowDetailsCommandProperty);
+        //    }
+
+        //    set
+        //    {
+        //        SetValue(ShowDetailsCommandProperty, value);
+        //    }
+        //}
+
+
+
+        public ICommand ShowDetailsCommand
+        {
+            get { return (ICommand)GetValue(ShowDetailsCommandProperty); }
+            set { SetValue(ShowDetailsCommandProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowDetailsCommand.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowDetailsCommandProperty =
+            DependencyProperty.Register("ShowDetailsCommand", typeof(ICommand), typeof(DeskCustomControl), new PropertyMetadata(null));
+
+
+
+        public object ShowDetailsCommandParameter
+        {
+            get { return (object)GetValue(ShowDetailsCommandParameterProperty); }
+            set { SetValue(ShowDetailsCommandParameterProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowDetailsCommandParameter.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowDetailsCommandParameterProperty =
+            DependencyProperty.Register("ShowDetailsCommandParameter", typeof(object), typeof(DeskCustomControl), new PropertyMetadata(null));
+
 
 
         static DeskCustomControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DeskCustomControl), new FrameworkPropertyMetadata(typeof(DeskCustomControl)));
         }
+
+        
     }
 }

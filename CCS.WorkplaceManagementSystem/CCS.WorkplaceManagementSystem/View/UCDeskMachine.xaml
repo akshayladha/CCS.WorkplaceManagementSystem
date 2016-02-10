@@ -21,7 +21,8 @@
             BorderThickness="5,5,0,0"
             BorderBrush="Black">
         <!--<ContentPresenter />-->
-        <Button HorizontalAlignment="Left">
+        <Button HorizontalAlignment="Left"
+                Command="{Binding OpenMachineDetailCommand}">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Height="50"
