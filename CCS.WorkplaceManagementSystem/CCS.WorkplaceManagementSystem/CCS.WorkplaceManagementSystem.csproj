@@ -57,18 +57,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\IUIService.cs" />
+    <Compile Include="Utilities\Mediator.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Service References\GetDataService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\UIService.cs" />
+    <Compile Include="ViewModel\MachineDetailViewModel.cs" />
     <Compile Include="ViewModel\MachineViewModel.cs" />
-    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Converters\StatusToColorConverter.cs" />
+    <Compile Include="View\MachineDetailsWindow.xaml.cs">
+      <DependentUpon>MachineDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UCDeskMachine.xaml.cs">
       <DependentUpon>UCDeskMachine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UCMachineDetail.xaml.cs">
+      <DependentUpon>UCMachineDetail.xaml</DependentUpon>
+    </Compile>
     <Page Include="Resources\DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MachineDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\UCDeskMachine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCMachineDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

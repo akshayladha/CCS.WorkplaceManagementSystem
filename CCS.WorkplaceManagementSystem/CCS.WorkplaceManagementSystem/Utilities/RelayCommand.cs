@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace CCS.WorkplaceManagementSystem
+namespace CCS.WorkplaceManagementSystem.Utilities
 {
     public class RelayCommand : ICommand
     {
-        private Action _execute;
+        private Action<object> _execute;
 
-        public RelayCommand(Action action)
+        public RelayCommand(Action<object> action)
         {
             _execute = action;
         }
@@ -25,7 +21,7 @@ namespace CCS.WorkplaceManagementSystem
 
         public void Execute(object parameter)
         {
-            _execute();
+            _execute(parameter);
         }
     }
 }

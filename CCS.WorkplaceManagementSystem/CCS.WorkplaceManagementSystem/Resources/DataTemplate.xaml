@@ -1,7 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CCS.WorkplaceManagementSystem">
-    <DataTemplate DataType="{x:Type local:MachineViewModel}">
-        <local:UCDeskMachine />
+                    xmlns:local="clr-namespace:CCS.WorkplaceManagementSystem"
+                    xmlns:viewModel="clr-namespace:CCS.WorkplaceManagementSystem.ViewModel"
+                    xmlns:view="clr-namespace:CCS.WorkplaceManagementSystem.View">
+    <DataTemplate DataType="{x:Type viewModel:MachineViewModel}">
+        <view:UCDeskMachine />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:MachineDetailViewModel}">
+        <view:UCMachineDetail />
     </DataTemplate>
 </ResourceDictionary>

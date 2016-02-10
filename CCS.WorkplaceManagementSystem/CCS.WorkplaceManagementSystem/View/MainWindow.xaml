@@ -1,18 +1,20 @@
-﻿<Window x:Class="CCS.WorkplaceManagementSystem.MainWindow"
+﻿<Window x:Class="CCS.WorkplaceManagementSystem.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCS.WorkplaceManagementSystem"
         xmlns:customControlLibrary="clr-namespace:CCS.CustomControlLibrary;assembly=CCS.CustomControlLibrary"
+        xmlns:view="clr-namespace:CCS.WorkplaceManagementSystem.View"
+        xmlns:viewModel="clr-namespace:CCS.WorkplaceManagementSystem.ViewModel"
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="Workplace Management System"
         Height="350"
-        Width="525">
+        Width="525"
+        x:Name="root">
     <Window.Resources>
-        <local:StatusToColorConverter x:Key="StatusToColorConverter" />
-        <local:MainWindowViewModel x:Key="MainWindowViewModel" />
+        <view:StatusToColorConverter x:Key="StatusToColorConverter" />
         <Style TargetType="{x:Type Image}"
                x:Key="ImageListboxstyle">
             <Setter Property="Height"
@@ -54,7 +56,9 @@
                                     BorderThickness="5,5,0,0"
                                     BorderBrush="Black">
                                 <!--<ContentPresenter />-->
-                                <Button HorizontalAlignment="Left">
+                                <Button HorizontalAlignment="Left"
+                                        Command="{Binding ElementName=root, Path=DataContext.OpenMachineDetailCommand}"
+                                        CommandParameter="{Binding Machine1}">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Style="{StaticResource ImageListboxstyle}" />
@@ -80,7 +84,9 @@
                                     BorderThickness="0,5,5,0"
                                     BorderBrush="Black">
                                 <!--<ContentPresenter />-->
-                                <Button HorizontalAlignment="Right">
+                                <Button HorizontalAlignment="Right"
+                                        Command="{Binding ElementName=root, Path=DataContext.OpenMachineDetailCommand}"
+                                        CommandParameter="{Binding Machine2}">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Style="{StaticResource ImageListboxstyle}" />
@@ -106,7 +112,9 @@
                                     BorderThickness="5,0,0,5"
                                     BorderBrush="Black">
                                 <!--<ContentPresenter />-->
-                                <Button HorizontalAlignment="Left">
+                                <Button HorizontalAlignment="Left"
+                                        Command="{Binding ElementName=root, Path=DataContext.OpenMachineDetailCommand}"
+                                        CommandParameter="{Binding Machine3}">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Style="{StaticResource ImageListboxstyle}" />
@@ -131,7 +139,9 @@
                                     SnapsToDevicePixels="true"
                                     BorderThickness="0,0,5,5"
                                     BorderBrush="Black">
-                                <Button HorizontalAlignment="Right">
+                                <Button HorizontalAlignment="Right"
+                                        Command="{Binding ElementName=root, Path=DataContext.OpenMachineDetailCommand}"
+                                        CommandParameter="{Binding Machine4}">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Style="{StaticResource ImageListboxstyle}" />
@@ -168,7 +178,7 @@
                     Value="Top" />
         </Style>
     </Window.Resources>
-    <TabControl DataContext="{StaticResource MainWindowViewModel}">
+    <TabControl >
         <TabItem Header="Using Listbox">
             <Grid>
                 <Grid.RowDefinitions>

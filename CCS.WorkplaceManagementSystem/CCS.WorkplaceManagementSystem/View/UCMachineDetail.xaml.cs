@@ -3,11 +3,11 @@
 namespace CCS.WorkplaceManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for UCDeskMachine.xaml
+    /// Interaction logic for UCMachineDetail.xaml
     /// </summary>
-    public partial class UCDeskMachine : UserControl
+    public partial class UCMachineDetail : UserControl
     {
-        public UCDeskMachine()
+        public UCMachineDetail()
         {
             InitializeComponent();
         }
